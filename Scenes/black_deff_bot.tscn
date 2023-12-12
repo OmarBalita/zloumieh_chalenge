@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://3lmd1gvrbred"]
+
+[ext_resource type="PackedScene" uid="uid://bmcx1kxdfkor0" path="res://Scenes/deff_bot.tscn" id="1_bjgj2"]
+[ext_resource type="Texture2D" uid="uid://c1c25pv6egknq" path="res://art/characters/walk_anim/walk.png" id="2_a4e1a"]
+[ext_resource type="Material" uid="uid://d3mc7vn78is4i" path="res://art/Resources/black_shader.tres" id="2_gyg8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpydr"]
+atlas = ExtResource("2_a4e1a")
+region = Rect2(800, 2400, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38rgn"]
+atlas = ExtResource("2_a4e1a")
+region = Rect2(0, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eefjo"]
+atlas = ExtResource("2_a4e1a")
+region = Rect2(800, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_645rr"]
+atlas = ExtResource("2_a4e1a")
+region = Rect2(1600, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x46wm"]
+atlas = ExtResource("2_a4e1a")
+region = Rect2(2400, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6srjn"]
+atlas = ExtResource("2_a4e1a")
+region = Rect2(3200, 1600, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jh7mg"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpydr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38rgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eefjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_645rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x46wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6srjn")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[node name="Black_Deff_Bot" instance=ExtResource("1_bjgj2")]
+Group = "Black"
+
+[node name="AnimatedSprite2D" parent="sprites" index="0"]
+material = ExtResource("2_gyg8c")
+sprite_frames = SubResource("SpriteFrames_jh7mg")
+
+[node name="CharcterBody1" parent="sprites" index="1"]
+material = ExtResource("2_gyg8c")
+
+[node name="CharcterHeadWhite" parent="sprites" index="2"]
+material = ExtResource("2_gyg8c")
+
+[node name="Arch_sprite" parent="weappon" index="0"]
+material = ExtResource("2_gyg8c")
+
+[node name="Sheald" parent="weappon" index="2"]
+material = ExtResource("2_gyg8c")

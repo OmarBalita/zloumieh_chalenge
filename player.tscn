@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://wks65dpt3jat"]
+
+[ext_resource type="Texture2D" uid="uid://c1c25pv6egknq" path="res://art/characters/walk_anim/walk.png" id="1_jpjqu"]
+[ext_resource type="Texture2D" uid="uid://bybuc5bbixfvi" path="res://art/characters/charcter_body_1.png" id="6_4aeft"]
+[ext_resource type="Texture2D" uid="uid://33r4lw5scs7x" path="res://art/characters/charcter_head_White.png" id="7_jo3aw"]
+[ext_resource type="Texture2D" uid="uid://dtrbcrme7aqjx" path="res://art/characters/charcter_body_Black.png" id="13_0dsqo"]
+[ext_resource type="Texture2D" uid="uid://digfxrgkrr1vl" path="res://art/characters/charcter_head.png" id="14_8bh8i"]
+[ext_resource type="Texture2D" uid="uid://dfu15x5roe4d8" path="res://art/weappon/sowrd.png" id="14_xr7ll"]
+[ext_resource type="Texture2D" uid="uid://cinabkynrqhhn" path="res://art/weappon/arch.png" id="15_75gur"]
+[ext_resource type="Texture2D" uid="uid://bbkay58ksr323" path="res://art/weappon/arrw.png" id="16_ppmbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nco2"]
+atlas = ExtResource("1_jpjqu")
+region = Rect2(0, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeabp"]
+atlas = ExtResource("1_jpjqu")
+region = Rect2(800, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fm7n"]
+atlas = ExtResource("1_jpjqu")
+region = Rect2(1600, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qj8t"]
+atlas = ExtResource("1_jpjqu")
+region = Rect2(2400, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ks2e"]
+atlas = ExtResource("1_jpjqu")
+region = Rect2(3200, 1600, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yi84"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nco2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeabp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fm7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qj8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ks2e")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dguty"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="character" type="Node2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="character"]
+position = Vector2(18.3333, -63.3333)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4yi84")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 1.0
+
+[node name="CharcterBody1" type="Sprite2D" parent="character"]
+position = Vector2(23, 10)
+scale = Vector2(0.867188, 0.867188)
+texture = ExtResource("6_4aeft")
+
+[node name="CharcterHeadWhite" type="Sprite2D" parent="character"]
+position = Vector2(21, 22)
+texture = ExtResource("7_jo3aw")
+
+[node name="character2" type="Node2D" parent="."]
+position = Vector2(496, 3)
+scale = Vector2(0.6, 0.6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="character2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-7, -63)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_dguty")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CharcterBodyBlack" type="Sprite2D" parent="character2"]
+position = Vector2(5, -12)
+texture = ExtResource("13_0dsqo")
+
+[node name="CharcterHead" type="Sprite2D" parent="."]
+position = Vector2(503, -7)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_8bh8i")
+
+[node name="Sowrd2" type="Sprite2D" parent="."]
+position = Vector2(539.4, -36.9723)
+rotation = -0.523599
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_xr7ll")
+
+[node name="Arch" type="Sprite2D" parent="."]
+position = Vector2(44.4003, -6.97229)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("15_75gur")
+
+[node name="Arrw" type="Sprite2D" parent="."]
+position = Vector2(89.4003, -9.97229)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("16_ppmbu")

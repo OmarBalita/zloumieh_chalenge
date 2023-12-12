@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnfca11fs41go"]
+
+[ext_resource type="PackedScene" uid="uid://b7qx3ifjh5nld" path="res://Scenes/dragon_bot.tscn" id="1_fkp5f"]
+[ext_resource type="PackedScene" uid="uid://berjigwdkd77q" path="res://Scenes/b_fire_ball.tscn" id="2_1jtt8"]
+[ext_resource type="Material" uid="uid://d3mc7vn78is4i" path="res://art/Resources/black_shader.tres" id="3_0sxu2"]
+
+[node name="DragonBot" instance=ExtResource("1_fkp5f")]
+Group = "Black"
+fire_ball = ExtResource("2_1jtt8")
+
+[node name="Sprite2D2" parent="Sprites" index="0"]
+material = ExtResource("3_0sxu2")
+
+[node name="AnimatedSprite2D" parent="Sprites" index="1"]
+material = ExtResource("3_0sxu2")
+
+[node name="Sprite2D" parent="Sprites" index="2"]
+material = ExtResource("3_0sxu2")
+
+[node name="ShotSpawner" parent="." index="4"]
+position = Vector2(-112, -16)

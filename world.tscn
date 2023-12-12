@@ -1,0 +1,323 @@
+[gd_scene load_steps=17 format=3 uid="uid://do5krnjxmm8gc"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_c2ake"]
+[ext_resource type="Texture2D" uid="uid://bf7u5x4iv6ty0" path="res://art/environment/trees_tiles.png" id="1_ujo2f"]
+[ext_resource type="Texture2D" uid="uid://bhuibst4gobt5" path="res://art/environment/ground_tiles.png" id="2_k655q"]
+[ext_resource type="FontFile" uid="uid://doojjjrt58jp0" path="res://Omar-Bold-1.ttf" id="4_uhnh2"]
+[ext_resource type="Script" path="res://scripts/EnemyBTN.gd" id="5_01jxf"]
+[ext_resource type="Texture2D" uid="uid://bpa14rfvxk7l3" path="res://art/Other/Cursor.png" id="7_hh8aw"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="7_nifha"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc2xa"]
+texture = ExtResource("1_ujo2f")
+texture_region_size = Vector2i(64, 64)
+2:6/size_in_atlas = Vector2i(4, 2)
+2:6/0 = 0
+2:6/0/texture_origin = Vector2i(0, 64)
+8:10/size_in_atlas = Vector2i(6, 6)
+8:10/0 = 0
+8:10/0/texture_origin = Vector2i(0, 192)
+1:9/size_in_atlas = Vector2i(6, 7)
+1:9/0 = 0
+1:9/0/texture_origin = Vector2i(0, 256)
+8:0/size_in_atlas = Vector2i(7, 8)
+8:0/0 = 0
+8:0/0/texture_origin = Vector2i(0, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ou1of"]
+texture = ExtResource("2_k655q")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+6:0/size_in_atlas = Vector2i(3, 2)
+6:0/0 = 0
+9:0/size_in_atlas = Vector2i(1, 2)
+9:0/0 = 0
+10:0/size_in_atlas = Vector2i(2, 2)
+10:0/0 = 0
+12:0/size_in_atlas = Vector2i(2, 2)
+12:0/0 = 0
+14:0/size_in_atlas = Vector2i(2, 2)
+14:0/0 = 0
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+2:2/size_in_atlas = Vector2i(3, 2)
+2:2/0 = 0
+5:2/size_in_atlas = Vector2i(1, 2)
+5:2/0 = 0
+6:2/size_in_atlas = Vector2i(2, 2)
+6:2/0 = 0
+8:2/size_in_atlas = Vector2i(2, 2)
+8:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1jmoj"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_yc2xa")
+sources/1 = SubResource("TileSetAtlasSource_ou1of")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kaxb"]
+size = Vector2(10000, 5000)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8f8t"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osakb"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ywrl"]
+bg_color = Color(0.858824, 0.858824, 0.858824, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vat2q"]
+bg_color = Color(0.870588, 0.870588, 0.870588, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phcqd"]
+bg_color = Color(0.592157, 0.592157, 0.592157, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 1
+
+[node name="World" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_c2ake")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 1
+tile_set = SubResource("TileSet_1jmoj")
+format = 2
+layer_0/name = "Decoration"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(-720927, 524288, 0, -1048591, 524288, 0, -786424, 524288, 0, -983005, 524288, 0, -720944, 524288, 0, 982996, 524288, 0, 1245158, 524288, 268435456, 917526, 524288, 0, 1245227, 524288, 0, -720940, 131072, 6, -917523, 131072, 6, -983052, 131072, 6, -786417, 131072, 6, -851928, 131072, 6, 1245164, 131072, 268435462, -655400, 131072, 268435462, -720879, 131072, 268435462, 917534, 131072, 268435462, 1048530, 131072, 268435462, 1310760, 131072, 268435462, 983072, 131072, 6, -1048616, 524288, 10, -1114132, 524288, 10, -720894, 524288, 10, -1245166, 524288, 10, -655325, 524288, 10, -1114068, 524288, 10, 982985, 524288, 10, 851935, 524288, 10, 1441752, 524288, 10, 786469, 524288, 10, 1441813, 524288, 10, 851970, 524288, 10, 1441778, 524288, 10, 852023, 524288, 10, -786491, 524288, 10, -917447, 524288, 10, 1114102, 65536, 9, 1376287, 65536, 268435465, -982991, 65536, 268435465, -1114138, 65536, 268435465, -786435, 65536, 268435465, 1245149, 65536, 9, 786478, 524288, 268435456, -917477, 524288, 268435456)
+layer_1/name = "back"
+layer_1/y_sort_enabled = true
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(-589831, 1, 0, -786430, 1, 0, -851979, 1, 0, -1048586, 1, 0, -1048569, 1, 0, -327693, 1, 0, -524303, 131073, 0, -458772, 262145, 0, -262143, 1, 0, -65541, 131073, 0, -589822, 131073, 0, -720913, 131073, 0, -131093, 131073, 0, -65542, 917505, 0, -589840, 262145, 0, -655369, 262145, 0, -458746, 262145, 0, -327682, 262145, 0, -786428, 262145, 0, -655352, 262145, 0, -65529, 262145, 0, 65540, 393217, 2, -458763, 393217, 2, -458762, 393217, 2, -17, 393217, 2, -131086, 655361, 0, -262163, 655361, 0, -2, 655361, 0, -655360, 655361, 0, -262153, 786433, 268435456, -720911, 786433, 268435456, 65504, 131073, 0, -262175, 1, 0, -65566, 655361, 0, 196580, 393217, 2, -393243, 262145, 0, -327706, 131073, 0, 65511, 655361, 0, -131096, 1, 0, -262166, 393217, 2, -262165, 393217, 2, 65515, 917505, 0, -65556, 786433, 268435456, -393234, 1, 0, 131055, 262145, 0, 131056, 131073, 0, -131085, 262145, 0, -13, 786433, 268435456, 196595, 655361, 0, -393227, 655361, 0, -131083, 917505, 0, -10, 1, 0, -327689, 131073, 0, 327673, 393217, 2, -196613, 262145, 0, 196604, 262145, 0, -393219, 262145, 0, 131069, 786433, 268435456, -65519, 131073, 0, -393198, 1, 0, -196589, 655361, 0, 65557, 393217, 2, -524266, 262145, 0, -458729, 131073, 0, -65512, 655361, 0, -262119, 1, 0, -393189, 393217, 2, -393188, 393217, 2, -65508, 917505, 0, -589795, 262145, 0, -196579, 786433, 268435456, -524257, 1, 0, 32, 262145, 0, 33, 131073, 0, -262108, 262145, 0, -131036, 786433, 268435456, 65572, 655361, 0, -524250, 655361, 0, -262106, 917505, 0, -131033, 1, 0, -458712, 131073, 0, 196650, 393217, 2, -196565, 917505, 0, -327636, 262145, 0, 65581, 262145, 0, -524242, 262145, 0, 46, 786433, 268435456, 196602, 131073, 0, -131077, 1, 0, 65532, 655361, 0, 327678, 393217, 2, -262145, 262145, 0, -262144, 131073, 0, 131073, 655361, 0, -65534, 1, 0, -196604, 393217, 2, -196603, 393217, 2, 131077, 917505, 0, -393210, 262145, 0, 6, 786433, 268435456, -327672, 1, 0, 196617, 262145, 0, 196618, 131073, 0, -65523, 262145, 0, 65549, 786433, 268435456, 262157, 655361, 0, -327665, 655361, 0, -65521, 917505, 0, 65552, 1, 0, -262127, 131073, 0, 393235, 393217, 2, 20, 917505, 0, -131051, 262145, 0, 262166, 262145, 0, -327657, 262145, 0, 196631, 786433, 268435456, -655329, 131073, 0, -983008, 1, 0, -786399, 655361, 0, -524253, 393217, 2, -1114076, 262145, 0, -1048539, 131073, 0, -655322, 655361, 0, -851929, 1, 0, -982999, 393217, 2, -982998, 393217, 2, -655318, 917505, 0, -1179605, 262145, 0, -786389, 786433, 268435456, -1114067, 1, 0, -589778, 262145, 0, -589777, 131073, 0, -851918, 262145, 0, -720846, 786433, 268435456, -524238, 655361, 0, -1114060, 655361, 0, -851916, 917505, 0, -720843, 1, 0, -1048522, 131073, 0, -393160, 393217, 2, -786375, 917505, 0, -917446, 262145, 0, -524229, 262145, 0, -1114052, 262145, 0, -589764, 786433, 268435456, -983038, 131073, 0, -1310717, 1, 0, -1114108, 655361, 0, -851962, 393217, 2, -1441785, 262145, 0, -1376248, 131073, 0, -983031, 655361, 0, -1179638, 1, 0, -1310708, 393217, 2, -1310707, 393217, 2, -983027, 917505, 0, -1507314, 262145, 0, -1114098, 786433, 268435456, -1441776, 1, 0, -917487, 262145, 0, -917486, 131073, 0, -1179627, 262145, 0, -1048555, 786433, 268435456, -851947, 655361, 0, -1441769, 655361, 0, -1179625, 917505, 0, -1048552, 1, 0, -1376231, 131073, 0, -720869, 393217, 2, -1114084, 917505, 0, -1245155, 262145, 0, -851938, 262145, 0, -1441761, 262145, 0, -917473, 786433, 268435456, -852022, 131073, 0, -1179701, 1, 0, -983092, 655361, 0, -720946, 393217, 2, -1310769, 262145, 0, -1245232, 131073, 0, -852015, 655361, 0, -1048622, 1, 0, -1179692, 393217, 2, -1179691, 393217, 2, -852011, 917505, 0, -1376298, 262145, 0, -983082, 786433, 268435456, -1310760, 1, 0, -786471, 262145, 0, -786470, 131073, 0, -1048611, 262145, 0, -917539, 786433, 268435456, -720931, 655361, 0, -1310753, 655361, 0, -1048609, 917505, 0, -917536, 1, 0, -1245215, 131073, 0, -589853, 393217, 2, -983068, 917505, 0, -1114139, 262145, 0, -720922, 262145, 0, -1310745, 262145, 0, -786457, 786433, 268435456, 524231, 131073, 0, 196552, 1, 0, 393161, 655361, 0, 655307, 393217, 2, 65484, 262145, 0, 131021, 131073, 0, 524238, 655361, 0, 327631, 1, 0, 196561, 393217, 2, 196562, 393217, 2, 524242, 917505, 0, -45, 262145, 0, 393171, 786433, 268435456, 65493, 1, 0, 589782, 262145, 0, 589783, 131073, 0, 327642, 262145, 0, 458714, 786433, 268435456, 655322, 655361, 0, 65500, 655361, 0, 327644, 917505, 0, 458717, 1, 0, 131038, 131073, 0, 786400, 393217, 2, 393185, 917505, 0, 262114, 262145, 0, 655331, 262145, 0, 65508, 262145, 0, 589796, 786433, 268435456, 917496, 131073, 0, 589817, 1, 0, 786426, 655361, 0, 1048572, 393217, 2, 458749, 262145, 0, 524286, 131073, 0, 917503, 655361, 0, 655360, 1, 0, 524290, 393217, 2, 524291, 393217, 2, 851971, 917505, 0, 327684, 262145, 0, 720900, 786433, 268435456, 393222, 1, 0, 917511, 262145, 0, 917512, 131073, 0, 655371, 262145, 0, 786443, 786433, 268435456, 983051, 655361, 0, 393229, 655361, 0, 655373, 917505, 0, 786446, 1, 0, 458767, 131073, 0, 1114129, 393217, 2, 720914, 917505, 0, 589843, 262145, 0, 983060, 262145, 0, 393237, 262145, 0, 917525, 786433, 268435456, 851994, 131073, 0, 524315, 1, 0, 720924, 655361, 0, 983070, 393217, 2, 393247, 262145, 0, 458784, 131073, 0, 852001, 655361, 0, 655394, 1, 0, 524324, 393217, 2, 524325, 393217, 2, 852005, 917505, 0, 327718, 262145, 0, 720934, 786433, 268435456, 393256, 1, 0, 917545, 262145, 0, 917546, 131073, 0, 655405, 262145, 0, 786477, 786433, 268435456, 983085, 655361, 0, 393263, 655361, 0, 655407, 917505, 0, 786480, 1, 0, 458801, 131073, 0, 1114163, 393217, 2, 720948, 917505, 0, 589877, 262145, 0, 983094, 262145, 0, 393271, 262145, 0, 917559, 786433, 268435456)
+
+[node name="Enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_nifha")
+
+[node name="GameArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameArea"]
+shape = SubResource("RectangleShape2D_6kaxb")
+
+[node name="Layer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="Layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlPanel" type="Panel" parent="Layer/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Layer/UI/ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Layer/UI/ControlPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="BTNSBox" type="HBoxContainer" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.04, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button5" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/ScrollContainer/BTNSBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8f8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_osakb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ywrl")
+toggle_mode = true
+text = "أوتاد"
+script = ExtResource("5_01jxf")
+enemy_name = "أوتاد"
+black_enemy_name = "أوتاد"
+
+[node name="Button3" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/ScrollContainer/BTNSBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8f8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_osakb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ywrl")
+toggle_mode = true
+text = "تنين"
+script = ExtResource("5_01jxf")
+enemy_name = "تنين"
+black_enemy_name = "تنين أسود"
+
+[node name="Button1" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/ScrollContainer/BTNSBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8f8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_osakb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ywrl")
+toggle_mode = true
+text = "رامي سهام"
+script = ExtResource("5_01jxf")
+enemy_name = "رامي سهام"
+black_enemy_name = "رامي سهام أسود"
+
+[node name="Button4" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/ScrollContainer/BTNSBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8f8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_osakb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ywrl")
+toggle_mode = true
+text = "مقاتل"
+script = ExtResource("5_01jxf")
+enemy_name = "مقاتل"
+black_enemy_name = "مقاتل أسود"
+
+[node name="Button2" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/ScrollContainer/BTNSBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8f8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_osakb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ywrl")
+toggle_mode = true
+text = "مدافع"
+script = ExtResource("5_01jxf")
+enemy_name = "مدافع"
+black_enemy_name = "مدافع أسود"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="EnemyType" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/HSplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vat2q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_phcqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vat2q")
+text = "أبيض"
+
+[node name="PlayBTN" type="Button" parent="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/HSplitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhnh2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vat2q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_phcqd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vat2q")
+text = "إبدأ"
+
+[node name="Cursor" type="TextureRect" parent="."]
+unique_name_in_owner = true
+z_index = 4096
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("7_hh8aw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_exited" from="GameArea" to="." method="_on_game_area_body_exited"]
+[connection signal="pressed" from="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/HSplitContainer/EnemyType" to="." method="_on_enemy_type_pressed"]
+[connection signal="pressed" from="Layer/UI/ControlPanel/MarginContainer/HSplitContainer/HSplitContainer/PlayBTN" to="." method="_on_play_btn_pressed"]

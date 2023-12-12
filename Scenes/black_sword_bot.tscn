@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctvv06cjabnky"]
+
+[ext_resource type="PackedScene" uid="uid://6kxb115r88ja" path="res://Scenes/sword_bot.tscn" id="1_wyw8j"]
+[ext_resource type="Material" uid="uid://d3mc7vn78is4i" path="res://art/Resources/black_shader.tres" id="2_hkf6v"]
+[ext_resource type="Texture2D" uid="uid://c1c25pv6egknq" path="res://art/characters/walk_anim/walk.png" id="2_kwi4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpydr"]
+atlas = ExtResource("2_kwi4g")
+region = Rect2(800, 2400, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38rgn"]
+atlas = ExtResource("2_kwi4g")
+region = Rect2(0, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eefjo"]
+atlas = ExtResource("2_kwi4g")
+region = Rect2(800, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_645rr"]
+atlas = ExtResource("2_kwi4g")
+region = Rect2(1600, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x46wm"]
+atlas = ExtResource("2_kwi4g")
+region = Rect2(2400, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6srjn"]
+atlas = ExtResource("2_kwi4g")
+region = Rect2(3200, 1600, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1p6d7"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpydr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38rgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eefjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_645rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x46wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6srjn")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[node name="SwordBot" instance=ExtResource("1_wyw8j")]
+group = "Black"
+
+[node name="AnimatedSprite2D" parent="sprites" index="0"]
+material = ExtResource("2_hkf6v")
+sprite_frames = SubResource("SpriteFrames_1p6d7")
+
+[node name="CharcterBody1" parent="sprites" index="1"]
+material = ExtResource("2_hkf6v")
+
+[node name="CharcterHeadWhite" parent="sprites" index="2"]
+material = ExtResource("2_hkf6v")
+
+[node name="sword_sprite" parent="weappon/Node2D" index="0"]
+material = ExtResource("2_hkf6v")

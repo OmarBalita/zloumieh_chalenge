@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmcx1kxdfkor0"]
+
+[ext_resource type="PackedScene" uid="uid://oovrurswuwf4" path="res://Scenes/bot.tscn" id="1_vgx4r"]
+[ext_resource type="Texture2D" uid="uid://c1c25pv6egknq" path="res://art/characters/walk_anim/walk.png" id="2_ax14s"]
+[ext_resource type="Script" path="res://scripts/deff_bot.gd" id="2_lcugf"]
+[ext_resource type="Texture2D" uid="uid://cnqnm6nx0hrkq" path="res://art/characters/charcter_body_2_W.png" id="3_6k3it"]
+[ext_resource type="Texture2D" uid="uid://dt7g3bjflx1s1" path="res://art/weappon/sheald.png" id="4_e2o3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpydr"]
+atlas = ExtResource("2_ax14s")
+region = Rect2(800, 2400, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38rgn"]
+atlas = ExtResource("2_ax14s")
+region = Rect2(0, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eefjo"]
+atlas = ExtResource("2_ax14s")
+region = Rect2(800, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_645rr"]
+atlas = ExtResource("2_ax14s")
+region = Rect2(1600, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x46wm"]
+atlas = ExtResource("2_ax14s")
+region = Rect2(2400, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6srjn"]
+atlas = ExtResource("2_ax14s")
+region = Rect2(3200, 1600, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1uwo"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpydr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38rgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eefjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_645rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x46wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6srjn")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[node name="Deff_Bot" instance=ExtResource("1_vgx4r")]
+script = ExtResource("2_lcugf")
+health = 200
+SPEED = 250
+
+[node name="AnimatedSprite2D" parent="sprites" index="0"]
+sprite_frames = SubResource("SpriteFrames_h1uwo")
+frame_progress = 0.0
+
+[node name="CharcterBody1" parent="sprites" index="1"]
+scale = Vector2(0.835938, 0.953125)
+texture = ExtResource("3_6k3it")
+
+[node name="Arch_sprite" parent="weappon" index="0"]
+visible = false
+
+[node name="Arch_tip" parent="weappon" index="1"]
+visible = false
+
+[node name="Sheald" type="Sprite2D" parent="weappon" index="2"]
+position = Vector2(56, -3.99998)
+scale = Vector2(0.898876, 0.898876)
+texture = ExtResource("4_e2o3d")
+
+[node name="CollisionShape2D" parent="Spoted_area" index="0"]
+position = Vector2(6, 12)
+
+[node name="ProgressBar" parent="." index="6"]
+max_value = 200.0
+value = 200.0

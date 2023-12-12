@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6vqabjubkx4d"]
+
+[ext_resource type="Script" path="res://scripts/Fire.gd" id="1_1ty13"]
+[ext_resource type="Texture2D" uid="uid://bbkay58ksr323" path="res://art/weappon/arrw.png" id="2_xf55p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v21n5"]
+size = Vector2(96, 10)
+
+[node name="Arow" type="Area2D"]
+script = ExtResource("1_1ty13")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_xf55p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v21n5")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv137pjhgt0u8"]
+
+[ext_resource type="PackedScene" uid="uid://oovrurswuwf4" path="res://Scenes/bot.tscn" id="1_62cd2"]
+[ext_resource type="Texture2D" uid="uid://c1c25pv6egknq" path="res://art/characters/walk_anim/walk.png" id="2_2b8hb"]
+[ext_resource type="PackedScene" uid="uid://bengqkxfaicl7" path="res://Scenes/b_arrow.tscn" id="2_vwydr"]
+[ext_resource type="Material" uid="uid://d3mc7vn78is4i" path="res://art/Resources/black_shader.tres" id="3_wn5mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpydr"]
+atlas = ExtResource("2_2b8hb")
+region = Rect2(800, 2400, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38rgn"]
+atlas = ExtResource("2_2b8hb")
+region = Rect2(0, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eefjo"]
+atlas = ExtResource("2_2b8hb")
+region = Rect2(800, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_645rr"]
+atlas = ExtResource("2_2b8hb")
+region = Rect2(1600, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x46wm"]
+atlas = ExtResource("2_2b8hb")
+region = Rect2(2400, 1600, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6srjn"]
+atlas = ExtResource("2_2b8hb")
+region = Rect2(3200, 1600, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0gw3"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpydr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38rgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eefjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_645rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x46wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6srjn")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[node name="BlackBot" instance=ExtResource("1_62cd2")]
+Group = "Black"
+Bullet = ExtResource("2_vwydr")
+
+[node name="AnimatedSprite2D" parent="sprites" index="0"]
+material = ExtResource("3_wn5mf")
+sprite_frames = SubResource("SpriteFrames_p0gw3")
+animation = &"Run"
+frame_progress = 0.0
+
+[node name="CharcterBody1" parent="sprites" index="1"]
+material = ExtResource("3_wn5mf")
+
+[node name="CharcterHeadWhite" parent="sprites" index="2"]
+material = ExtResource("3_wn5mf")
+
+[node name="Arch_sprite" parent="weappon" index="0"]
+material = ExtResource("3_wn5mf")

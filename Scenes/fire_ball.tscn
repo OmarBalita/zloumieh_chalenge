@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0i14wpmc45my"]
+
+[ext_resource type="Texture2D" uid="uid://inxdb23ustop" path="res://art/weappon/FireBall.png" id="1_4g6ta"]
+[ext_resource type="Script" path="res://scripts/Fire.gd" id="1_s20tk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njd37"]
+radius = 30.0
+
+[node name="FireBall" type="Area2D"]
+script = ExtResource("1_s20tk")
+dmg_scale = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_njd37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4g6ta")

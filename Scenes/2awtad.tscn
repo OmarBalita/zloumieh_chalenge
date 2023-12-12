@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://oss854ntm1ev"]
+
+[ext_resource type="Texture2D" uid="uid://buok8mfgkx7bl" path="res://art/weappon/2awtad.png" id="1_8tlwe"]
+[ext_resource type="Script" path="res://scripts/2awtad.gd" id="1_47huc"]
+[ext_resource type="StyleBox" uid="uid://c4upgwwnnxkkj" path="res://art/Resources/progres_bar_fill.tres" id="3_qumou"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxjwh"]
+radius = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q28d"]
+bg_color = Color(0.423529, 0.423529, 0.423529, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 12
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[node name="2awtad" type="Area2D"]
+script = ExtResource("1_47huc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_8tlwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fxjwh")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+z_index = 4096
+offset_left = -141.0
+offset_top = -241.0
+offset_right = 157.0
+offset_bottom = -206.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0q28d")
+theme_override_styles/fill = ExtResource("3_qumou")
+max_value = 50.0
+value = 50.0
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

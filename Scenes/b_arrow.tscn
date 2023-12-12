@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bengqkxfaicl7"]
+
+[ext_resource type="PackedScene" uid="uid://c6vqabjubkx4d" path="res://Scenes/arow.tscn" id="1_1k3nl"]
+[ext_resource type="Material" uid="uid://d3mc7vn78is4i" path="res://art/Resources/black_shader.tres" id="2_skbtw"]
+
+[node name="B_Arrow" instance=ExtResource("1_1k3nl")]
+group = "BlackWeapon"
+
+[node name="Sprite2D" parent="." index="0"]
+material = ExtResource("2_skbtw")
