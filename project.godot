@@ -12,7 +12,7 @@ config_version=5
 
 config/name="game_chalnge"
 run/main_scene="res://world.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.2")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -69,4 +69,5 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.780392, 0.780392, 0.780392, 1)
